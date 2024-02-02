@@ -1,0 +1,227 @@
+/* 기본 설정 */
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  color: white; /* 전체적인 텍스트 색상을 흰색으로 설정 */
+}
+
+/* 이미지 배경 전체 화면에 꽉 차도록 설정 */
+body {
+  background: url("img/your-image.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* 포지션 relative로 설정하여 내부 요소들을 절대 위치로 조정할 수 있게 함 */
+}
+
+/* 시계 스타일 */
+#clock {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  font-size: 50px;
+  margin-top: 20px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* 로그인 폼 스타일 */
+#login-form {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  /* margin-bottom: 20px; */
+}
+
+#greeting {
+  position: absolute;
+  top: 18%;
+  left: 20%;
+  /* margin-bottom: 20px; */
+}
+
+#login-form input[type="text"],
+#login-form input[type="submit"] {
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+#login-form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+/* 할 일 입력 폼 스타일 */
+#todo-form {
+  /* margin-bottom: 20px; */
+  position: absolute;
+  top: 26%;
+  left: 20%;
+}
+
+#todo-form input {
+  padding: 10px;
+  width: 300px; /* 너비 설정 */
+  border: none;
+  border-radius: 5px;
+}
+
+#todo-list {
+  list-style-type: disc; /* 불릿 스타일 설정 */
+  padding-left: 20px; /* 불릿과 텍스트 사이 간격 설정 */
+  position: absolute;
+  top: 30%;
+  left: 22%;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* 할 일 리스트 항목 앞에 불릿 구분자 추가 */
+#todo-list li::before {
+  content: "•"; /* 불릿 문자 */
+  color: white; /* 불릿 색상 */
+  font-size: 20px; /* 불릿 크기 */
+  line-height: 20px; /* 라인 높이 */
+  margin-right: 10px; /* 불릿과 텍스트 사이의 간격 */
+  /* 불릿을 항목의 수직 중앙에 위치시키기 위한 설정 */
+  position: absolute;
+  left: -25px; /* 불릿의 위치를 조정 */
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* 할 일 텍스트 스타일 */
+#todo-list li span {
+  flex-grow: 1; /* 텍스트가 할 일 항목의 나머지 공간을 채우도록 설정 */
+  margin-right: 10px; /* 텍스트와 삭제 버튼 사이의 간격 추가 */
+}
+/* 날씨 정보 스타일 */
+#weather {
+  position: absolute;
+  top: 13%;
+  left: 36%;
+}
+
+/* 인용구 스타일 */
+#quote {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(240, 248, 255, 0.5);
+  padding: 10px;
+  color: black;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#quote img {
+  max-width: 100px; /* 그림 크기 설정 */
+  max-height: 100px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0; /* 초기에는 이미지를 숨김 */
+  transition: opacity 0.5s ease-in-out; /* 부드러운 투명도 전환을 위한 설정 */
+}
+
+#quote-text,
+#quote-translation {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Fade-in and Fade-out 애니메이션 */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#quote span {
+  display: block;
+}
+
+/* 인용구 내의 첫 번째 span (명언) 스타일 */
+#quote span:first-child {
+  display: block;
+  font-size: 2em; /* h1과 유사한 크기, 필요에 따라 조정 */
+  font-weight: bold; /* 볼드체로 강조 */
+}
+
+/* 인용구 내의 두 번째 span (저자) 스타일 */
+#quote span:last-child {
+  display: block;
+  font-size: 1em; /* h3과 유사한 크기, 필요에 따라 조정 */
+  font-style: italic; /* 이탤릭체로 저자명 표시 */
+  margin-top: 10px; /* 명언과 저자명 사이에 간격 추가 */
+}
+
+.todo-delete-btn {
+  background-color: rgba(255, 255, 255, 0.5); /* 반투명한 배경 */
+  width: 20px; /* 버튼의 너비 */
+  height: 20px; /* 버튼의 높이 */
+  line-height: 20px;
+  border: none; /* 테두리 없음 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  padding: 0; /* 패딩 제거 */
+  margin-left: 10px; /* 버튼과 할 일 텍스트 사이의 간격 */
+  cursor: pointer; /* 마우스 오버 시 커서 변경 */
+  font-size: 10px; /* 폰트 크기 조정 */
+  color: white; /* 버튼 텍스트 색상 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+  line-height: 20px; /* 버튼 높이와 같게 설정하여 텍스트를 버튼 중앙에 위치 */
+  display: inline-block; /* 인라인 블록으로 설정 */
+  vertical-align: middle; /* 수직 가운데 정렬 */
+}
+
+/* 버튼 호버 효과 */
+.todo-delete-btn:hover {
+  background-color: rgba(255, 255, 255, 0.7); /* 마우스 오버 시 배경 색 변경 */
+}
+
+/* 날짜 정보 스타일 */
+#date-info {
+  position: absolute;
+  top: 15%; /* 적절한 위치 조정 */
+  left: 36%; /* 적절한 위치 조정 */
+  color: white; /* 텍스트 색상 설정 */
+  font-size: 20px; /* 텍스트 크기 설정 */
+}
+/* 숨김 처리 */
+.hidden {
+  display: none;
+}
