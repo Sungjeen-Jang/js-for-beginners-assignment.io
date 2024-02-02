@@ -12,11 +12,12 @@ html {
 /* 이미지 배경 전체 화면에 꽉 차도록 설정 */
 body {
   background: url("img/your-image.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background-size: cover; /* 이미지가 화면 크기에 맞도록 조정 */
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative; /* 포지션 relative로 설정하여 내부 요소들을 절대 위치로 조정할 수 있게 함 */
+  overflow: hidden; /* 스크롤바를 제거하기 위해 overflow 속성을 hidden으로 설정 */
 }
 
 /* 시계 스타일 */
